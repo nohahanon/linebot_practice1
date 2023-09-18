@@ -12,8 +12,6 @@ import messageFunc from './event/message.js';
 // import memberJoinedFunc from './event/memberJoined.js';
 // import memberLeftFunc from './event/memberLeft.js';
 
-
-
 const client = new line.Client({
   channelAccessToken: process.env.channelAccessToken,
 });
