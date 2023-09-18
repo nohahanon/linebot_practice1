@@ -12,6 +12,8 @@ import unfollowFunc from './event/unfollow.js';
 import memberJoinedFunc from './event/memberJoined.js';
 import memberLeftFunc from './event/memberLeft.js';
 
+
+
 const client = new line.Client({
   channelAccessToken: process.env.channelAccessToken,
 });
@@ -36,52 +38,52 @@ export const index = (req, res) => {
           message = await messageFunc(event, client);
           break;
         }
-        case 'unsend': {
-          // 送信取消イベントが飛んできた時はunsend.jsのindexを呼び出す
-          // 処理結果をmessageに格納
-          message = unsendFunc(event);
-          break;
-        }
-        case 'postback': {
-          // ポストバックイベントが飛んできた時はpostback.jsのindexを呼び出す
-          // 処理結果をmessageに格納
-          message = postbackFunc(event);
-          break;
-        }
-        case 'join': {
-          // 参加イベントが飛んできた時はjoin.jsのindexを呼び出す
-          // 処理結果をmessageに格納
-          message = joinFunc();
-          break;
-        }
-        case 'leave': {
-          // 退出イベントが飛んできた時はleave.jsのindexを呼び出す
-          leaveFunc(event);
-          break;
-        }
-        case 'follow': {
-          // フォローイベントが飛んできた時はfollow.jsのindexを呼び出す
-          message = followFunc();
-          break;
-        }
-        case 'unfollow': {
-          // フォロー解除イベントが飛んできた時はunfollow.jsのindexを呼び出す
-          // 処理結果をmessageに格納
-          unfollowFunc(event);
-          break;
-        }
-        case 'memberJoined': {
-          // メンバー参加イベントが飛んできた時はmemberJoined.jsのindexを呼び出す
-          // 処理結果をmessageに格納
-          message = memberJoinedFunc(event);
-          break;
-        }
-        case 'memberLeft': {
-          // メンバー退出イベントが飛んできた時はmemberLeft.jsのindexを呼び出す
-          // 処理結果をmessageに格納
-          memberLeftFunc(event);
-          break;
-        }
+        // case 'unsend': {
+        //   // 送信取消イベントが飛んできた時はunsend.jsのindexを呼び出す
+        //   // 処理結果をmessageに格納
+        //   message = unsendFunc(event);
+        //   break;
+        // }
+        // case 'postback': {
+        //   // ポストバックイベントが飛んできた時はpostback.jsのindexを呼び出す
+        //   // 処理結果をmessageに格納
+        //   message = postbackFunc(event);
+        //   break;
+        // }
+        // case 'join': {
+        //   // 参加イベントが飛んできた時はjoin.jsのindexを呼び出す
+        //   // 処理結果をmessageに格納
+        //   message = joinFunc();
+        //   break;
+        // }
+        // case 'leave': {
+        //   // 退出イベントが飛んできた時はleave.jsのindexを呼び出す
+        //   leaveFunc(event);
+        //   break;
+        // }
+        // case 'follow': {
+        //   // フォローイベントが飛んできた時はfollow.jsのindexを呼び出す
+        //   message = followFunc();
+        //   break;
+        // }
+        // case 'unfollow': {
+        //   // フォロー解除イベントが飛んできた時はunfollow.jsのindexを呼び出す
+        //   // 処理結果をmessageに格納
+        //   unfollowFunc(event);
+        //   break;
+        // }
+        // case 'memberJoined': {
+        //   // メンバー参加イベントが飛んできた時はmemberJoined.jsのindexを呼び出す
+        //   // 処理結果をmessageに格納
+        //   message = memberJoinedFunc(event);
+        //   break;
+        // }
+        // case 'memberLeft': {
+        //   // メンバー退出イベントが飛んできた時はmemberLeft.jsのindexを呼び出す
+        //   // 処理結果をmessageに格納
+        //   memberLeftFunc(event);
+        //   break;
+        // }
         default:
           break;
       }
