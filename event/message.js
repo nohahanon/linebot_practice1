@@ -1,11 +1,11 @@
 // ファイル読み込み
-import { audioEvent } from './message/audio.js';
-import { fileEvent } from './message/file.js';
-import { imageEvent } from './message/image.js';
-import { locationEvent } from './message/location.js';
-import { stickerEvent } from './message/sticker.js';
-import { textEvent } from './message/text.js';
-import { videoEvent } from './message/video.js';
+// import { audioEvent } from './message/audio.js';
+// import { fileEvent } from './message/file.js';
+// import { imageEvent } from './message/image.js';
+// import { locationEvent } from './message/location.js';
+// import { stickerEvent } from './message/sticker.js';
+// import { textEvent } from './message/text.js';
+// import { videoEvent } from './message/video.js';
 
 import fetch from "node-fetch";
 

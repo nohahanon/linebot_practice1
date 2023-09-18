@@ -3,14 +3,14 @@ import line from '@line/bot-sdk';
 import crypto from 'crypto';
 // 各イベントごとの処理をするファイルの読み込み
 import messageFunc from './event/message.js';
-import unsendFunc from './event/unsend.js';
-import postbackFunc from './event/postback.js';
-import joinFunc from './event/join.js';
-import leaveFunc from './event/leave.js';
-import followFunc from './event/follow.js';
-import unfollowFunc from './event/unfollow.js';
-import memberJoinedFunc from './event/memberJoined.js';
-import memberLeftFunc from './event/memberLeft.js';
+// import unsendFunc from './event/unsend.js';
+// import postbackFunc from './event/postback.js';
+// import joinFunc from './event/join.js';
+// import leaveFunc from './event/leave.js';
+// import followFunc from './event/follow.js';
+// import unfollowFunc from './event/unfollow.js';
+// import memberJoinedFunc from './event/memberJoined.js';
+// import memberLeftFunc from './event/memberLeft.js';
 
 
 
