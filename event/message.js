@@ -7,12 +7,11 @@
 // import { textEvent } from './message/text.js';
 // import { videoEvent } from './message/video.js';
 
-import fetch from "node-fetch";
-
+import fetch from 'node-fetch';
 
 // メッセージイベントが飛んできた時に呼び出される
-export default async (event, client) => {
-  let message;
+// export default async (event, client) => {
+export default async () => {
   // メッセージタイプごとの条件分岐
   // switch (event.message.type) {
   //   case 'text': {
@@ -68,25 +67,26 @@ export default async (event, client) => {
   //   }
   // }
 
-  message = {
+  const message = {
     type: 'text',
     text: '',
   };
   const url = 'https://api.open-meteo.com/v1/forecast?latitude=37.4947&longitude=139.9298&hourly=precipitation_probability&timezone=Asia%2FTokyo&forecast_days=1';
   await fetch(url)
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       // message.text = JSON.stringify(data.hourly);
       let str = '';
       let flag = 0;
-      for (let i = 0; i < 24; i++) {
-        str += data.hourly.time[i] + ' :\t' + data.hourly.precipitation_probability[i] + '\n'
-        if (70 <= data.hourly.precipitation_probability[i]) flag = 1;
+      for (let i = 0; i < 24; i += 1) {
+        // str += data.hourly.time[i] + ' :\t' + data.hourly.precipitation_probability[i] + '\n'
+        str = `${str}${data.hourly.time[i]} :\t${data.hourly.precipitation_probability[i]}\n`;
+        if (data.hourly.precipitation_probability[i] >= 70) flag = 1;
       }
-      if (flag) str += '雨降るぞ'
+      if (flag) str += '雨降るぞ';
       message.text = str;
     })
-    .catch(error => {
+    .catch((error) => {
       console.error('エラーが発生しました:', error);
     });
 

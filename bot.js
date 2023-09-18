@@ -35,7 +35,7 @@ export const index = (req, res) => {
         case 'message': {
           // メッセージイベントが飛んできた時はmessage.jsのindexを呼び出す
           // 処理結果をmessageに格納
-          message = await messageFunc(event, client);
+          message = await messageFunc();
           break;
         }
         // case 'unsend': {
