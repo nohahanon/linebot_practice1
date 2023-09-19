@@ -13,13 +13,13 @@ import messageFunc from './event/message.js';
 // import memberLeftFunc from './event/memberLeft.js';
 
 const client = new line.Client({
-  channelAccessToken: 'qv/M7uMlFC3/Y7iQGfw+o8LlpwfRxzQfOImQhP99AC8K+H1agEwaOH4UdemJjYALHDtw+rm7Nj6ZQIhF4sSZrifgM05Lml+VpzimwuU1O+SAoZUopRBTII8UFzLnADg65tVD7CC/id4/Fk8aUW405AdB04t89/1O/w1cDnyilFU=',
+  channelAccessToken: process.env.channelAccessToken
 });
 
 export const index = (req, res) => {
   console.log(req.body.events);
   // 署名検証
-  const signature = crypto.createHmac('sha256', '780489ca8d44c0c1ce30baeb6bccf5a0').update(JSON.stringify(req.body)).digest('base64');
+  const signature = crypto.createHmac('sha256', process.env.channelSecret).update(JSON.stringify(req.body)).digest('base64');
   const checkHeader = req.header('X-Line-Signature');
   const { events } = req.body;
   let message;
