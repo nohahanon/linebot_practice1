@@ -13,7 +13,7 @@ import messageFunc from './event/message.js';
 // import memberLeftFunc from './event/memberLeft.js';
 
 const client = new line.Client({
-  channelAccessToken: process.env.channelAccessToken
+  channelAccessToken: process.env.channelAccessToken,
 });
 
 export const index = (req, res) => {
