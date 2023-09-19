@@ -6,14 +6,14 @@ import 'dotenv/config';
 // ファイルの読み込み
 import { index } from '../bot.js';
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 const app = express();
 
 // /にアクセスがあった時、Deploy succeededと返す
 app.get('/', (req, res) => { res.send('Deploy succeeded'); });
 // /webhookにアクセスがあったとき、bot.jsのindexを呼び出す
 app.post('/webhook', middleware({
-  channelSecret: process.env.channelSecret,
+  channelSecret: '780489ca8d44c0c1ce30baeb6bccf5a0',
 }), index);
 
 app.listen(PORT);
